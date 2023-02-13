@@ -1,15 +1,18 @@
-body {
-  align: center;
+.all-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
 }
 
 .btns {
-  height: 80px;
-  width: 80px;
-  
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+  border: 1px solid #333;
+  border-radius: 5px;
 }
 
-.all-buttons {
-  display: flex; 
-  justify-content: center;
-  margin: 0 auto; 
+#zero {
+  grid-column: 1 / 3;
 }
+
