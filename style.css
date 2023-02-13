@@ -1,0 +1,15 @@
+body {
+  align: center;
+}
+
+.btns {
+  height: 80px;
+  width: 80px;
+  
+}
+
+.all-buttons {
+  display: flex; 
+  justify-content: center;
+  margin: 0 auto; 
+}
