@@ -1,6 +1,15 @@
 const display = document.querySelector('.display');
 const keys = document.querySelector('#keys');
 const clear = document.querySelector('.clear')
+const operands = document.querySelector('.operands')
+const operators = document.querySelector('.operators')
+const decimal = document.querySelector('decimal')
+const memory = document.querySelector('.memory')
+const firstOperand = '';
+const secondOperand = '';
+const selectedOperator = '';
+const operatorsClicked = false;
+
 
 keys.addEventListener('click', event => {
   const button = event.target;
@@ -8,7 +17,7 @@ keys.addEventListener('click', event => {
   const buttonValue = button.textContent; 
   const displayValue = display.textContent; 
   
-
+  
   if(displayValue === '0') {
     display.textContent = buttonValue;
   } else {
