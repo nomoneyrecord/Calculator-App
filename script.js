@@ -5,10 +5,10 @@ const operands = document.querySelector('.operands')
 const operators = document.querySelector('.operators')
 const decimal = document.querySelector('decimal')
 const memory = document.querySelector('.memory')
-const firstOperand = '';
-const secondOperand = '';
-const selectedOperator = '';
-const operatorsClicked = false;
+const firstOperand = operands.textContent;
+const secondOperand = operands.textContent;
+const selectedOperator = operators.textContent;
+console.log(operators);
 
 
 keys.addEventListener('click', event => {
@@ -16,7 +16,6 @@ keys.addEventListener('click', event => {
   if (!button.matches('button')) return;
   const buttonValue = button.textContent; 
   const displayValue = display.textContent; 
-  
   
   if(displayValue === '0') {
     display.textContent = buttonValue;
