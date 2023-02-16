@@ -3,8 +3,9 @@ const keys = document.querySelector('#keys');
 const clear = document.querySelector('.clear')
 const operands = document.querySelector('.operands')
 const operators = document.querySelector('.operators')
-const decimal = document.querySelector('decimal')
+const decimal = document.querySelector('.decimal')
 const memory = document.querySelector('.memory')
+const equals = document.querySelector('.equal')
 let firstOperand = '';
 let secondOperand = '';
 let selectedOperator = '';
@@ -21,15 +22,20 @@ keys.addEventListener('click', event => {
  
   if (button.classList.contains('operands')) {
     if (selectedOperator === '') {
-      firstOperand = displayValue;
+      firstOperand += buttonValue;
     } else {
-      secondOperand = displayValue;
+      secondOperand += buttonValue;
     }
-    display.textContent = buttonValue;
+    display.textContent += buttonValue;
+  } else if (button.classList.contains('operators')) {
+    selectedOperator = buttonValue;
+    displayValue.textContent = buttonValue;
+  } else if (buttonValue === 'AC') {
+    display.textContent = '0';
+    firstOperand = '';
+    secondOperand = '';
+    selectedOperator = '';
+  } else {
+    display.textContent += buttonValue;
   }
-
-  if (button.classList.contains('operators')) {
-    if ()
-  }
-
 });
