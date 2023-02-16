@@ -16,6 +16,8 @@ keys.addEventListener('click', event => {
   if (!button.matches('button')) return;
   const buttonValue = button.textContent; 
   const displayValue = display.textContent; 
+
+ 
  
   if (button.classList.contains('operands')) {
     if (selectedOperator === '') {
@@ -25,4 +27,9 @@ keys.addEventListener('click', event => {
     }
     display.textContent = buttonValue;
   }
+
+  if (button.classList.contains('operators')) {
+    if ()
+  }
+
 });
