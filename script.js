@@ -19,21 +19,21 @@ keys.addEventListener('click', event => {
   
   if (button.classList.contains('operands')) {
     if (selectedOperator === '') {
+      if (display.textContent === '0') {
+        display.textContent = '';
+      }
       firstOperand += buttonValue;
+      display.textContent += buttonValue; 
     } else {
       secondOperand += buttonValue;
+      display.textContent = secondOperand;
     }
-    display.textContent += buttonValue;
   } else if (button.classList.contains('operators')) {
     selectedOperator = buttonValue;
-    display.textContent = '';
   } else if (button.classList.contains('equal')) {
 
   }
 
-  if (selectedOperator !== '') {
-    display.textContent = secondOperand;
-  }
 });
 
 clear.addEventListener('click', () => {
