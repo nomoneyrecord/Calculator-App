@@ -14,12 +14,9 @@ let selectedOperator = '';
 
 keys.addEventListener('click', event => {
   const button = event.target;
-  if (!button.matches('button')) return;
   const buttonValue = button.textContent; 
-  const displayValue = display.textContent; 
-
- 
- 
+  
+  
   if (button.classList.contains('operands')) {
     if (selectedOperator === '') {
       firstOperand += buttonValue;
@@ -29,13 +26,19 @@ keys.addEventListener('click', event => {
     display.textContent += buttonValue;
   } else if (button.classList.contains('operators')) {
     selectedOperator = buttonValue;
-    displayValue.textContent = buttonValue;
-  } else if (buttonValue === 'AC') {
-    display.textContent = '0';
-    firstOperand = '';
-    secondOperand = '';
-    selectedOperator = '';
-  } else {
-    display.textContent += buttonValue;
+    display.textContent = '';
+  } else if (button.classList.contains('equal')) {
+
   }
+
+  if (selectedOperator !== '') {
+    display.textContent = secondOperand;
+  }
+});
+
+clear.addEventListener('click', () => {
+  firstOperand = '';
+  secondOperand = '';
+  selectedOperator = '';
+  display.textContent = '0';
 });
