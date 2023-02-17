@@ -30,7 +30,12 @@ keys.addEventListener('click', event => {
     }
   } else if (button.classList.contains('operators')) {
     selectedOperator = buttonValue;
-  } else if (button.classList.contains('equal')) {
+  } else if (buttonValue === '.') {
+    if (!display.textContent.includes('.')) {
+    firstOperand += buttonValue; 
+    display.textContent += buttonValue; 
+  }
+} else if (button.classList.contains('equal')) {
 
   }
 
@@ -42,3 +47,4 @@ clear.addEventListener('click', () => {
   selectedOperator = '';
   display.textContent = '0';
 });
+
