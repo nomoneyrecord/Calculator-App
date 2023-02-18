@@ -16,7 +16,7 @@ keys.addEventListener('click', event => {
   const button = event.target;
   const buttonValue = button.textContent; 
   
-  
+  let result;
   if (button.classList.contains('operands')) {
     if (selectedOperator === '') {
       if (display.textContent === '0') {
@@ -30,16 +30,29 @@ keys.addEventListener('click', event => {
     }
   } else if (button.classList.contains('operators')) {
     selectedOperator = buttonValue;
-  } else if (buttonValue === '.') {
-    if (!display.textContent.includes('.')) {
-    firstOperand += buttonValue; 
-    display.textContent += buttonValue; 
-  }
-} else if (button.classList.contains('equal')) {
+  // } else if (buttonValue === '.') {
+  //   if (!display.textContent.includes('.')) {
+  //   firstOperand += buttonValue; 
+  //   display.textContent += buttonValue; 
+  } else if (button.classList.contains('equals')) {
+   
+    if (selectedOperator == '+') {
+    result = firstOperand.textContent + secondOperand.textContent;
+} else if (selectedOperator == '-') {
+    result = firstOperand - secondOperand;
+} else if (selectedOperator == '*') {
+    result = firstOperand * secondOperand;
+} else if (selectedOperator == '÷') {
+    result = firstOperand / secondOperand;
+} else {
+  result = firstOperand + secondOperand
+}
 
-  }
 
-});
+console.log(`${firstOperand}${selectedOperator}${secondOperand}= ${result}`);
+  
+
+}});
 
 clear.addEventListener('click', () => {
   firstOperand = '';
