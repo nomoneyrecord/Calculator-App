@@ -35,21 +35,21 @@ keys.addEventListener('click', event => {
   //   firstOperand += buttonValue; 
   //   display.textContent += buttonValue; 
   } else if (button.classList.contains('equals')) {
-   
+   let display; 
     if (selectedOperator == '+') {
-    result = firstOperand.textContent + secondOperand.textContent;
+    display = firstOperand.textContent + secondOperand.textContent;
 } else if (selectedOperator == '-') {
-    result = firstOperand - secondOperand;
+    display = firstOperand - secondOperand;
 } else if (selectedOperator == '*') {
-    result = firstOperand * secondOperand;
+    display = firstOperand * secondOperand;
 } else if (selectedOperator == '÷') {
-    result = firstOperand / secondOperand;
+    display = firstOperand / secondOperand;
 } else {
-  result = firstOperand + secondOperand
+  display = firstOperand + secondOperand
 }
 
-
-console.log(`${firstOperand}${selectedOperator}${secondOperand}= ${result}`);
+console.log(firstOperand, selectedOperator, secondOperand);
+console.log(`${firstOperand}${selectedOperator}${secondOperand}= ${display}`);
   
 
 }});
