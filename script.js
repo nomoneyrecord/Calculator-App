@@ -10,49 +10,48 @@ let firstOperand = '';
 let secondOperand = '';
 let selectedOperator = '';
 
-
-
 keys.addEventListener('click', event => {
   const button = event.target;
   const buttonValue = button.textContent; 
-  
-  let result;
+
   if (button.classList.contains('operands')) {
     if (selectedOperator === '') {
       if (display.textContent === '0') {
         display.textContent = '';
       }
       firstOperand += buttonValue;
-      display.textContent += buttonValue; 
+      display.textContent += buttonValue;
     } else {
       secondOperand += buttonValue;
       display.textContent = secondOperand;
     }
   } else if (button.classList.contains('operators')) {
     selectedOperator = buttonValue;
-  // } else if (buttonValue === '.') {
-  //   if (!display.textContent.includes('.')) {
-  //   firstOperand += buttonValue; 
-  //   display.textContent += buttonValue; 
-  } else if (button.classList.contains('equals')) {
-   let display; 
-    if (selectedOperator == '+') {
-    display = firstOperand.textContent + secondOperand.textContent;
-} else if (selectedOperator == '-') {
-    display = firstOperand - secondOperand;
-} else if (selectedOperator == '*') {
-    display = firstOperand * secondOperand;
-} else if (selectedOperator == '÷') {
-    display = firstOperand / secondOperand;
-} else {
-  display = firstOperand + secondOperand
-}
-
-console.log(firstOperand, selectedOperator, secondOperand);
-console.log(`${firstOperand}${selectedOperator}${secondOperand}= ${display}`);
-  
-
-}});
+    display.textContent = firstOperand;
+  } else if (button.classList.contains('equal')) {
+    const num1 = parseInt(firstOperand);
+    const num2 = parseInt(secondOperand);
+    let result;
+    switch (selectedOperator) {
+      case '+':
+        result = num1 + num2;
+        break;
+      case '-':
+        result = num1 - num2;
+        break;
+      case 'x':
+        result = num1 * num2;
+        break;
+      case '÷':
+        result = num1 / num2;
+        break;
+    }
+    display.textContent = result.toString();
+    firstOperand = result.toString();
+    secondOperand = '';
+    selectedOperator = '';
+  }
+});
 
 clear.addEventListener('click', () => {
   firstOperand = '';
@@ -60,4 +59,7 @@ clear.addEventListener('click', () => {
   selectedOperator = '';
   display.textContent = '0';
 });
+
+
+
 
