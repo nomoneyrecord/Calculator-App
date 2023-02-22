@@ -6,7 +6,7 @@ const operators = document.querySelector('.operators');
 const decimal = document.querySelector('.decimal');
 const memory = document.querySelector('.memory');
 const equals = document.querySelector('.equal');
-
+const buttons = document.querySelectorAll('button');
 let firstOperand = '';
 let secondOperand = '';
 let selectedOperator = '';
@@ -54,6 +54,10 @@ keys.addEventListener('click', event => {
     }
     selectedOperator = buttonValue;
     reset = true;
+  } else if (button.classList.contains('decimal')) {
+    if (!display.textContent.includes('.')) {
+      display.textContent += '.';
+    }
   } else if (button.classList.contains('equal')) {
     if (selectedOperator !== '' && secondOperand !== '') {
       const num2 = parseFloat(secondOperand);
@@ -79,6 +83,15 @@ keys.addEventListener('click', event => {
       reset = true;
     }
   }
+});
+
+buttons.forEach(button => {
+  button.addEventListener('click', function() {
+    button.classList.add('active');
+    setTimeout(function() {
+      button.classList.remove('active');
+    }, 100);
+  });
 });
 
 clear.addEventListener('click', () => {
