@@ -55,8 +55,16 @@ keys.addEventListener('click', event => {
     selectedOperator = buttonValue;
     reset = true;
   } else if (button.classList.contains('decimal')) {
-    if (!display.textContent.includes('.')) {
-      display.textContent += '.';
+    if (selectedOperator === '') {
+      if (!firstOperand.includes('.')) {
+        firstOperand += '.';
+        display.textContent += '.';
+      }
+    } else {
+      if (!secondOperand.includes('.')) {
+        secondOperand += '.';
+        display.textContent += '.';
+      }
     }
   } else if (button.classList.contains('equal')) {
     if (selectedOperator !== '' && secondOperand !== '') {
