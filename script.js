@@ -83,9 +83,9 @@ keys.addEventListener('click', event => {
           result = currentResult / num2;
           break;
       }
-      display.textContent = result.toString();
+      display.textContent = result.toFixed(3);
       currentResult = null;
-      firstOperand = result.toString();
+      firstOperand = result.toString(3);
       secondOperand = '';
       selectedOperator = '';
       reset = true;
