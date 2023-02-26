@@ -15,7 +15,7 @@ let currentResult = null;
 
 keys.addEventListener('click', event => {
   const button = event.target;
-  const buttonValue = button.textContent; 
+  const buttonValue = button.textContent;
 
   if (button.classList.contains('operands')) {
     if (selectedOperator === '') {
@@ -23,11 +23,15 @@ keys.addEventListener('click', event => {
         display.textContent = '';
         reset = false;
       }
-      firstOperand += buttonValue;
-      display.textContent += buttonValue;
+      if (firstOperand.length < 12) {
+        firstOperand += buttonValue;
+        display.textContent += buttonValue;
+      }
     } else {
-      secondOperand += buttonValue;
-      display.textContent = secondOperand;
+      if (secondOperand.length < 12) {
+        secondOperand += buttonValue;
+        display.textContent = secondOperand;
+      }
     }
   } else if (button.classList.contains('operators')) {
     if (currentResult === null) {
