@@ -48,7 +48,7 @@ keys.addEventListener('click', event => {
           currentResult /= num2;
           break;
       }
-      display.textContent = currentResult.toString();
+      display.textContent = currentResult.toFixed(3);
       firstOperand = currentResult.toString();
       secondOperand = '';
     }
@@ -83,15 +83,21 @@ keys.addEventListener('click', event => {
           result = currentResult / num2;
           break;
       }
-      display.textContent = result.toFixed(3);
+      if (Number.isInteger(result)) { 
+        display.textContent = result.toString(); 
+      } else {
+        display.textContent = result.toFixed(3); 
+      }
       currentResult = null;
-      firstOperand = result.toString(3);
+      firstOperand = display.textContent;
       secondOperand = '';
       selectedOperator = '';
       reset = true;
     }
   }
+  
 });
+
 
 buttons.forEach(button => {
   button.addEventListener('click', function() {
