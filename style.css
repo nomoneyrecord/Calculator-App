@@ -5,6 +5,7 @@ body {
 
 h1 {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin-left: 120px;
 }
 .calculator {
   display: inline-block;
