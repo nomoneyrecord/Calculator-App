@@ -4,7 +4,7 @@ _Basic calculator app written with HTML, CSS, and Javascript_
 
 Try it [here](https://nomoneyrecord.github.io/Calculator-App/)
 
-![Image](/Calculator-Pic.png)
+![Image](./Images/Calculator-Pic.png)
 
 ## Summary
 
